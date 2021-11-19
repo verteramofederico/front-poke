@@ -1,6 +1,6 @@
 import Header from './Header'
 import BodyWelcome from './BodyWelcomeHome'
-import PokeFetchContainer from './PokeFetchContainer'
+import PokeFetchContainer from './PokeContainer'
 
 function App() {
   return (

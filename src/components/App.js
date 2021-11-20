@@ -4,7 +4,7 @@ import PokeFetchContainer from './PokeContainer'
 import AllPokeList from './AllPokeList'
 import OnePokeComponent from './OnePokeComponent'
 import Error404 from './Error404'
-import { Link, Route, Switch} from 'react-router-dom'
+import { Route, Switch} from 'react-router-dom'
 
 function App() {
   return (

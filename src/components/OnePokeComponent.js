@@ -1,9 +1,11 @@
 import {Card} from "react-bootstrap"
 import {React, useState, useEffect} from 'react';
 import './PokeContainer.css'
+import {Alert, Button} from 'react-bootstrap'
 
 function OnePokeContainer(props) {
-    const [pokeInfo, setPokeInfo] = useState (null) 
+    const [pokeInfo, setPokeInfo] = useState (null)
+    const [showErrorAlert, setShowErrorAlert] = useState(false) 
 
     let idToSearch = props.match.params.id
     useEffect(() => {
@@ -14,10 +16,21 @@ function OnePokeContainer(props) {
       .catch((error) => error)
   }, [idToSearch])
 
-  console.log(pokeInfo)
+   useEffect(() => {
+       if (idToSearch > 1118)
+       {setShowErrorAlert(true)} 
+   })
   return (
     <>
-    <Card className='OnePokeContainer' style={{ width: '18rem' }}>
+    {idToSearch > 1118 ? 
+    <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
+        <Alert.Heading>Pokemon no encontrado</Alert.Heading>
+        <p>
+          En este momento la base de Pokemon es de 1118. Por favor ingrese
+          un id entre 1 y 1118.
+        </p>
+      </Alert> : 
+        <Card className='OnePokeContainer' style={{ width: '18rem' }}>
         <Card.Body>
             {pokeInfo ? <Card.Title className="CardTitle">{pokeInfo.name}</Card.Title> : <Card.Title>Poke name</Card.Title>}
             {pokeInfo ? <Card.Text>Peso: {pokeInfo.weight}</Card.Text> : <Card.Text>Weight: loading</Card.Text>}
@@ -32,8 +45,7 @@ function OnePokeContainer(props) {
             </Card.Text>
         </Card.Body>
         {pokeInfo? <Card.Img className="imgOnePoke" variant="top" src={pokeInfo.sprites.front_default} /> : null}
-    </Card>
-
+    </Card> }
     </>
     )
 }

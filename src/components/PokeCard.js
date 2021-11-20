@@ -4,19 +4,17 @@ import PokeCardContent from './PokeCardContent'
 
 function PokeCard(props) {
     const [pokeInfo, setPokeInfo] = useState (null) 
-    let idToSearch = props.clave
+    let idToSearch = props.idPoke
   useEffect(() => {
       fetch(`http://localhost:3001/api/${idToSearch}`)
       .then((res) => res.json())
       .then((data) => 
-      {console.log(data.datapoke)
-      setPokeInfo(data.datapoke)})
+      setPokeInfo(data.datapoke))
       .catch((error) => error)
   }, [])
   return (
     <>
     <Card style={{ width: '18rem' }}>
-        {console.log(props.clave)}
         <PokeCardContent pokeInfo={pokeInfo}/>
     </Card>
     </>

@@ -1,17 +1,20 @@
 import Card from 'react-bootstrap/Card'
+import './Header-Welcome.css'
 
 function BodyWelcome() {
     return (
-        <Card className="text-center">
-        <Card.Header>PokeApi</Card.Header>
-        <Card.Body>
-          <Card.Title>Bringing all Poke information</Card.Title>
+      <>
+        <h1 className="mainh1">PokeApi</h1>
+        <Card className="text-center cardWelcome">
+        <Card.Body >
+          <Card.Title>Toda la informacion Pokemon</Card.Title>
           <Card.Text>
-            With help from PokeApi.v2 we bring you all about Pokemon
+            Con ayuda de PokeApi.v2 traemos toda la informacion que busca
           </Card.Text>
         </Card.Body>
         <Card.Footer className="text-muted">by FV</Card.Footer>
       </Card>
+      </>
     )
 }
 

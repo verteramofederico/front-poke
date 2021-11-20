@@ -19,6 +19,7 @@
 .imgOnePoke {
     max-width: 30% !important;
     max-height: 30% !important;
+    padding-top: 10px !important;
     display:block;
     margin:auto
 
